@@ -1,9 +1,11 @@
 import player
+import room
 
 class Game():
 
     def __init__(self):
         self.player = player.Player()
+        self.room = room.Room()
 
     def move_forward(self):
         self.player.move_forward()
@@ -22,4 +24,5 @@ class Game():
 
     def draw(self, screen):
         self.player.draw(screen)
+        self.room.draw(screen)
 

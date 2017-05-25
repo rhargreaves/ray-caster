@@ -1,14 +1,16 @@
-import player
+import player as p
 import room
 
 class Game():
 
     def __init__(self):
         self.room = room.Room()
-        self.player = player.Player(self.room.centre())
+        self.player = p.Player(self.room.centre())
 
     def move_forward(self):
         self.player.move_forward()
+        if self.room.out_of_bounds(self.player.position):
+            self.player.move_back()
 
     def move_back(self):
         self.player.move_back()

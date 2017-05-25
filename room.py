@@ -15,5 +15,8 @@ class Room():
         return (sum([x for x,_ in self.vertices]) / len(self.vertices),
                 sum([y for _,y in self.vertices]) / len(self.vertices))
 
+    def out_of_bounds(self, position):
+        return False
+
     def draw(self, screen):
         pygame.draw.polygon(screen, YELLOW, self.vertices, 1)

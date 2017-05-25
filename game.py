@@ -4,18 +4,14 @@ import math
 
 WHITE = (255, 255, 255)
 SPEED = 5
-PI = 3.141592
 ARROW_LENGTH = 25
 ANGLE_STEP = SPEED / 40
 
-class Game():
+class Player():
 
     def __init__(self):
         self.position = [250, 250]
         self.angle = 0
-
-    def tick(self):
-        return
 
     def move_forward(self):
         self.position = [
@@ -26,12 +22,6 @@ class Game():
         self.position = [
                 self.position[0] + (math.sin(self.angle) * SPEED),
                 self.position[1] - (math.cos(self.angle) * (SPEED * -1))]
-
-    def move_left(self):
-        self.position = [self.position[0]-SPEED, self.position[1]]
-
-    def move_right(self):
-        self.position = [self.position[0]+SPEED, self.position[1]]
 
     def turn_left(self):
         self.angle += ANGLE_STEP
@@ -46,4 +36,27 @@ class Game():
                 [self.position[0] - (math.sin(self.angle) * ARROW_LENGTH),
                  self.position[1] - (math.cos(self.angle) * ARROW_LENGTH)],
                 1)
+
+class Game():
+
+    def __init__(self):
+        self.player = Player()
+
+    def move_forward(self):
+        self.player.move_forward()
+
+    def move_back(self):
+        self.player.move_back()
+
+    def turn_left(self):
+        self.player.turn_left()
+
+    def turn_right(self):
+        self.player.turn_right()
+
+    def tick(self):
+        return
+
+    def draw(self, screen):
+        self.player.draw(screen)
 

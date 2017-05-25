@@ -38,6 +38,6 @@ class Game():
                 WHITE, 
                 self.position, 
                 [self.position[0] + (math.sin(self.angle) * ARROW_LENGTH),
-                 self.position[0] + (math.cos(self.angle) * ARROW_LENGTH)],
+                 self.position[1] + (math.cos(self.angle) * ARROW_LENGTH)],
                 1)
 

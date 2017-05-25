@@ -5,7 +5,7 @@ class Game():
 
     def __init__(self):
         self.room = room.Room()
-        self.player = player.Player()
+        self.player = player.Player(self.room.centre())
 
     def move_forward(self):
         self.player.move_forward()

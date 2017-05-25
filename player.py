@@ -9,8 +9,8 @@ ANGLE_STEP = SPEED / 40
 
 class Player():
 
-    def __init__(self):
-        self.position = [250, 250]
+    def __init__(self, position):
+        self.position = position
         self.angle = 0
 
     def move_forward(self):

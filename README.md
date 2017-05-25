@@ -9,8 +9,16 @@ at the same time)
 
 ## Getting Started
 
+Install requirements:
+
 ```
 $ make build
+```
+
+Run tests:
+
+```
+$ make tests
 ```
 
 ### Launch

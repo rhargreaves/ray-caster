@@ -1,5 +1,26 @@
+import pygame
+
+WHITE = (255, 255, 255)
+SPEED = 5
 
 class Game():
 
+    def __init__(self):
+        self.position = [250, 250]
+
     def tick(self):
-        print("Tick!")
+        return
+
+    def move_left(self):
+        self.position = [self.position[0]-SPEED, self.position[1]]
+
+    def move_right(self):
+        self.position = [self.position[0]+SPEED, self.position[1]]
+
+    def draw(self, screen):
+        pygame.draw.line(screen, 
+                WHITE, 
+                self.position, 
+                [v+50 for v in self.position], 
+                1)
+

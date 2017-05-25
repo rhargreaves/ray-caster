@@ -5,10 +5,11 @@ from game import *
 pygame.init()
 pygame.display.set_caption("ray-caster")
 
-WHITE = (0, 0, 0)
+BLACK = (0, 0, 0)
 
 size = (800, 600)
 screen = pygame.display.set_mode(size)
+pygame.key.set_repeat(1, 10)
 
 game = Game()
 done = False
@@ -17,9 +18,14 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                game.move_left()
+            if event.key == pygame.K_RIGHT:
+                game.move_right()
 
     game.tick()
-
-    screen.fill(WHITE)
+    screen.fill(BLACK)
+    game.draw(screen)
     pygame.display.flip()
     clock.tick(60)

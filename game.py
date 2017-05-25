@@ -1,11 +1,12 @@
+from __future__ import division
 import pygame
 import math
 
 WHITE = (255, 255, 255)
 SPEED = 5
 PI = 3.141592
-ARROW_LENGTH = 50
-ANGLE_STEP = 0.05
+ARROW_LENGTH = 25
+ANGLE_STEP = SPEED / 40
 
 class Game():
 
@@ -17,10 +18,14 @@ class Game():
         return
 
     def move_forward(self):
-        self.position = [self.position[0], self.position[1]-SPEED]
+        self.position = [
+                self.position[0] - (math.sin(self.angle) * SPEED),
+                self.position[1] + (math.cos(self.angle) * (SPEED * -1))]
 
     def move_back(self):
-        self.position = [self.position[0], self.position[1]+SPEED]
+        self.position = [
+                self.position[0] + (math.sin(self.angle) * SPEED),
+                self.position[1] - (math.cos(self.angle) * (SPEED * -1))]
 
     def move_left(self):
         self.position = [self.position[0]-SPEED, self.position[1]]

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import pygame
+from game import *
 
 pygame.init()
 pygame.display.set_caption("ray-caster")
@@ -9,6 +10,7 @@ WHITE = (0, 0, 0)
 size = (800, 600)
 screen = pygame.display.set_mode(size)
 
+game = Game()
 done = False
 clock = pygame.time.Clock()
 while not done:
@@ -16,7 +18,8 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
 
-    screen.fill(WHITE)
+    game.tick()
 
+    screen.fill(WHITE)
     pygame.display.flip()
     clock.tick(60)

@@ -4,8 +4,8 @@ import room
 class Game():
 
     def __init__(self):
-        self.player = player.Player()
         self.room = room.Room()
+        self.player = player.Player()
 
     def move_forward(self):
         self.player.move_forward()

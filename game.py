@@ -5,6 +5,7 @@ WHITE = (255, 255, 255)
 SPEED = 5
 PI = 3.141592
 ARROW_LENGTH = 50
+ANGLE_STEP = 0.05
 
 class Game():
 
@@ -28,16 +29,16 @@ class Game():
         self.position = [self.position[0]+SPEED, self.position[1]]
 
     def turn_left(self):
-        self.angle -= 0.25
+        self.angle += ANGLE_STEP
 
     def turn_right(self):
-        self.angle += 0.25
+        self.angle -= ANGLE_STEP
 
     def draw(self, screen):
         pygame.draw.line(screen, 
                 WHITE, 
                 self.position, 
-                [self.position[0] + (math.sin(self.angle) * ARROW_LENGTH),
-                 self.position[1] + (math.cos(self.angle) * ARROW_LENGTH)],
+                [self.position[0] - (math.sin(self.angle) * ARROW_LENGTH),
+                 self.position[1] - (math.cos(self.angle) * ARROW_LENGTH)],
                 1)
 

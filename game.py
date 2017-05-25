@@ -11,6 +11,12 @@ class Game():
     def tick(self):
         return
 
+    def move_forward(self):
+        self.position = [self.position[0], self.position[1]-SPEED]
+
+    def move_back(self):
+        self.position = [self.position[0], self.position[1]+SPEED]
+
     def move_left(self):
         self.position = [self.position[0]-SPEED, self.position[1]]
 

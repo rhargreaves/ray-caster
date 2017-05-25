@@ -19,6 +19,10 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
         if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                game.move_forward()
+            if event.key == pygame.K_DOWN:
+                game.move_back()
             if event.key == pygame.K_LEFT:
                 game.move_left()
             if event.key == pygame.K_RIGHT:

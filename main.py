@@ -24,9 +24,9 @@ while not done:
             if event.key == pygame.K_DOWN:
                 game.move_back()
             if event.key == pygame.K_LEFT:
-                game.move_left()
+                game.turn_left()
             if event.key == pygame.K_RIGHT:
-                game.move_right()
+                game.turn_right()
 
     game.tick()
     screen.fill(BLACK)
